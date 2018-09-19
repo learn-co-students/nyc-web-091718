@@ -12,22 +12,19 @@
 ## Outline
 
 * Review yesterday's material
+  * we created classes
+  * we created instances of classes
+  * we created methods to alter the attributes of the class
 * self... maybe global
 * Dive into today's material
-
-# we created classes
-# we created instances of classes
-# we created methods to alter the attributes of the class
 
 ## Deliverables
 
 * Create a User class. The class should have these methods:
-  * `#initialize` which takes a username and have
-  * a reader method for the username
+
   * `#tweets` that returns an array of Tweet instances
-  * `#post_tweet` that takse a message, creates a new tweet, and adds it to the user's tweet collection
+
 * Create a Tweet class. The class should have these methods:
-  * `Tweet#message` that returns a string
+
   * `Tweet#user` that returns an instance of the user class
-  * `Tweet.all` that returns all the Tweets created.
   * `Tweet#username` that returns the username of the tweet's user
