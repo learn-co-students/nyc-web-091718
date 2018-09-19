@@ -21,10 +21,10 @@
 ## Deliverables
 
 * Create a User class. The class should have these methods:
-
   * `#tweets` that returns an array of Tweet instances
-
+  * 12
 * Create a Tweet class. The class should have these methods:
-
   * `Tweet#user` that returns an instance of the user class
+  * 6
   * `Tweet#username` that returns the username of the tweet's user
+  * ???

@@ -15,6 +15,17 @@ class Tweet
     @@all
   end
 
+  # def user
+  #   # returns an instance of the user class
+  #   # self.user @user user
+  #   binding.pry
+  # end
+
+  def username
+    # binding.pry
+    self.user.username
+  end
+
   # if we want to delete a tweet, class or instance method?
   # def self.delete
   # def delete

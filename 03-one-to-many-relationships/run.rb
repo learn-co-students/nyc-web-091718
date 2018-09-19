@@ -5,6 +5,7 @@ require_relative './user'
 u1 = User.new("Mike Cheng")
 u2 = User.new("Zach")
 u3 = User.new("Elbin")
+u4 = User.new("Mike Cheng")
 
 t1 = Tweet.new("hello world", u1)
 t2 = Tweet.new("fake news", u1)
