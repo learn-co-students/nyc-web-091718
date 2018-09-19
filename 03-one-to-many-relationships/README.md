@@ -6,7 +6,7 @@
   * One object has many objects
   * One object belongs to another object
 * Practice passing custom objects as arguments to methods
-* Demonstrate single source of truth
+* Demonstrate Single Source of Truth
 * Infer type of method \(class or instance\) through naming conventions
 
 ## Outline
@@ -14,6 +14,10 @@
 * Review yesterday's material
 * self... maybe global
 * Dive into today's material
+
+# we created classes
+# we created instances of classes
+# we created methods to alter the attributes of the class
 
 ## Deliverables
 
