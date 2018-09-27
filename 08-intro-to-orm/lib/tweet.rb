@@ -10,5 +10,17 @@ class Tweet
     @message = props['message']
     @username = props['username']
     ALL << self
+
+    # Let's create here
+    # but it makes us lose flexibility
+  end
+
+  def self.idontknowyet
+    # Let's create here
+  end
+
+  def save
+    binding.pry
+    # DB[:conn].execute("")
   end
 end
