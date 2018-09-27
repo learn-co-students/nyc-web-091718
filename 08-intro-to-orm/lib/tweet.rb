@@ -21,6 +21,6 @@ class Tweet
 
   def save
     binding.pry
-    # DB[:conn].execute("")
+    # DB[:conn].execute("INSERT ")
   end
 end
