@@ -13,21 +13,22 @@
 
 1. Books and Authors where each book has a single author. Books should have a title
 
-books
-id | title             | author_id
-1  | 'house of leaves' | 1
-2  | 'hamilton'        | 2
-3  | 'harry potter'    | 3
-4  | 'harry potter 2'    | 3
-5  | 'harry potter 3'    | 3
-6  | 'harry potter 4'    | 3
+  ```
+  books
+  id | title               | author_id
+  1  | 'house of leaves'   | 1
+  2  | 'hamilton'          | 2
+  3  | 'harry potter'      | 3
+  4  | 'harry potter 2'    | 3
+  5  | 'harry potter 3'    | 3
+  6  | 'harry potter 4'    | 3
 
-authors
-id | name
-1  | 'ryu'
-2  | 'ron chernow?'
-3  | 'JK Rowling'
-
+  authors
+  id | name
+  1  | 'ryu'
+  2  | 'ron chernow?'
+  3  | 'JK Rowling'
+  ```
 
   Q: Write the SQL to find all books written by a certain author given that author's id
 
@@ -45,6 +46,7 @@ id | name
   - What type of relationship is this?
     - many to many which means we need a JOIN TABLE!!!!
 
+    ```
     books
     id | title              
     1  | 'house of leaves'  
@@ -56,13 +58,13 @@ id | name
 
     authors_books
     id | book_id | author_id
-    1 | 1 | 1       
-    2 | 2 | 2       
-    3 | 3 | 3
-    4 | 4 | 3       
-    5 | 5 | 3       
-    6 | 6 | 3
-    6 | 6 | 4   
+    1  | 1       | 1       
+    2  | 2       | 2       
+    3  | 3       | 3
+    4  | 4       | 3       
+    5  | 5       | 3       
+    6  | 6       | 3
+    6  | 6       | 4   
 
     authors
     id | name
@@ -70,6 +72,7 @@ id | name
     2  | 'ron chernow?'
     3  | 'JK Rowling'
     4  | 'Robert Patterson'
+    ```
 
   Q. Write the SQL to find all books written by certain author given their name
 
