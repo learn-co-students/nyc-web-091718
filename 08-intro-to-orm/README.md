@@ -13,77 +13,67 @@
 
 1. Books and Authors where each book has a single author. Books should have a title
 
-  ```
   books
-  id | title               | author_id
-  1  | 'house of leaves'   | 1
-  2  | 'hamilton'          | 2
-  3  | 'harry potter'      | 3
-  4  | 'harry potter 2'    | 3
-  5  | 'harry potter 3'    | 3
-  6  | 'harry potter 4'    | 3
+  id | title                 | author_id
+  1  | 'Harry Potter'        | 1
+  2  | 'Catcher in the Rye'  | 2
+  3  | 'Pokemon The Journey' | 3
 
   authors
   id | name
-  1  | 'ryu'
-  2  | 'ron chernow?'
-  3  | 'JK Rowling'
-  ```
+  1  | 'JK Rowling'
+  2  | 'someone in the rye'
+  3  | 'Professor Oak'
 
   Q: Write the SQL to find all books written by a certain author given that author's id
 
   ```SQL
-  SELECT * FROM books WHERE author_id = 3;
+  SELECT * FROM books WHERE author_id = 1
 
   SELECT * FROM books
-  INNER JOIN authors
-  ON books.author_id = authors.id
-  WHERE authors.name = ''
+  JOIN authors
+  ON authors.id = books.author_id
+  WHERE authors.name = "JK Rowling"
   ```
 
 2. Books and Authors where each book can have one or MULTIPLE authors. Books should have a title and authors should have a name.
 
+  many-to-many
+
+  books
+  id | title                 
+  1  | 'Harry Potter'        
+  2  | 'Catcher in the Rye'  
+  3  | 'Pokemon The Journey'
+  4  | 'Harry Potter 2'
+  5  | 'Harry Potter 3'
+
+  books_authors <== describes the relationship
+  id | book_id | author_id
+  1  | 1       | 1
+  2  | 2       | 2
+  3  | 3       | 3
+  4  | 4       | 1
+  5  | 5       | 1
+
+  authors
+  id | name                  
+  1  | 'JK Rowling'          
+  2  | 'someone in the rye'
+  3  | 'Professor Oak'
+
   - What type of relationship is this?
-    - many to many which means we need a JOIN TABLE!!!!
-
-    ```
-    books
-    id | title              
-    1  | 'house of leaves'  
-    2  | 'hamilton'         
-    3  | 'harry potter'     
-    4  | 'harry potter 2'   
-    5  | 'harry potter 3'   
-    6  | 'harry potter 4'   
-
-    authors_books
-    id | book_id | author_id
-    1  | 1       | 1       
-    2  | 2       | 2       
-    3  | 3       | 3
-    4  | 4       | 3       
-    5  | 5       | 3       
-    6  | 6       | 3
-    6  | 6       | 4   
-
-    authors
-    id | name
-    1  | 'ken'
-    2  | 'ron chernow?'
-    3  | 'JK Rowling'
-    4  | 'Robert Patterson'
-    ```
+    - many to many
 
   Q. Write the SQL to find all books written by certain author given their name
 
   ``` SQL
-  SELECT *
-  FROM books
-  JOIN authors_books
-  ON books.id = authors_books.book_id
+  SELECT * FROM books
+  JOIN books_authors
+  ON books.id = books_authors.book_id
   JOIN authors
-  ON authors_books.author_id = authors.id
-  WHERE authors.name = 'JK Rowling'
+  ON authors.id = books_authors.author_id
+  WHERE authors.name = "JK Rowling"
   ```
 
 3. Squirrels have Nests in Trees -- Build table
@@ -127,23 +117,20 @@ What are the four ways we can interact with Data?
 
 1. Create
   - CREATE TABLE, INSERT INTO
-  - INSERT INTO authors (name) VALUES ('Billy Bobthrouhg?')
-  - Authors.new('Billy Bobthrouhg?')
+  - Author.new
 
 2. Read
-  - SELECT * FROM authors
-  - Author.all.select do |authors| whatever == end
-  - Author.where(name: 'something')
+  - SELECT
+  - a1.name
+  - Author.all.select
 
 3. Update
-  - ALTER table, or column, UPDATE
-  - UPDATE something SET something = somehting
-  - a1.name = 'new name'
+  - UPDATE
+  - a1.name = 'New Name'
 
 4. Delete / Destroy
-  - DELETE FROM authors WHERE name = 'JK Rowling'
-  - DROP TABLE authors
-  - a1.destroy
+  - DELETE, DROP TABLE
+  - pop, a1.destroy
 
 ### Active Record Pattern
 

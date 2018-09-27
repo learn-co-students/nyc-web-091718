@@ -7,5 +7,5 @@ end
 
 desc 'Meow!'
 task :meow do
-  puts "Meow!!"
+  puts "Meow!!!!"
 end
