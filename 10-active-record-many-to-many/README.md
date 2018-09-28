@@ -18,13 +18,14 @@ Active Record Associations
 - Review Project Setup (files, migrations, models)
 - Active record - How to use it!
   - [ ] Active Record
-  - [ ] Models
+  - [ ] Models: `ActiveRecord::Base`
 - Migrations What are they?
   - [ ] Migrations
   - [ ] Schema
 - methods from Active record
   - [ ] Associations: `belongs_to`, `has_many`
   - [ ] Methods
+- Seed Data!
 
 ## Remember These Steps!!!
 
