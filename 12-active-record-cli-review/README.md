@@ -5,9 +5,6 @@ Active Record Review
 
 * Actively Record their data.
 
-
-
-
 ## Objectives
 
 1. How to setup the database from nothing.
@@ -20,13 +17,13 @@ Active Record Review
 * Play with [AR methods](https://guides.rubyonrails.org/active_record_querying.html#retrieving-objects-from-the-database).
 * Pry a bit more.
 
-# Have idea
-# Write Models
-# Write workflow / userflow
-# test your endpoints
-# investigate data returned
-# update model to use data returned
-# Have solid enough base to write CLI
+* Have idea
+* Write Models
+* Write workflow / userflow
+* test your endpoints
+* investigate data returned
+* update model to use data returned
+* Have solid enough base to write CLI
 
 ## Remember These Steps!!!
 
