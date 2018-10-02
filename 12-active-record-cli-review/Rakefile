@@ -6,3 +6,8 @@ task :console do
   ActiveRecord::Base.logger = Logger.new(STDOUT)
   Pry.start
 end
+
+# desc 'runs my app'
+# task :start do
+#   # write code to run app
+# end
