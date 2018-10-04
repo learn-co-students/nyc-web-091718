@@ -1,4 +1,4 @@
-OO Relations Review
+OO Relations Museums
 ===================
 
 ## Topics
@@ -8,6 +8,8 @@ OO Relations Review
 - Object Relationships
 - Arrays and Array Methods
 - Class Methods
+- Single Source of Truth
+- JOIN Table
 
 ## Notes
 
@@ -20,3 +22,7 @@ We've provided you with a console that you can use to test your code. To enter a
 ## Deliverables
 
 We will decide on a domain and deliverables!
+
+**Example**
+
+We have three models - `GraffitiWork`, `Artists`, and `Museums`. For our purposes, a `GraffitiWork` has many `Museums`, a `Artists` has many `Museums`, and a `Museums` belongs to a `Artists` and to a `GraffitiWork`. `GraffitiWork` - `Artists` is a many to many relationship.
