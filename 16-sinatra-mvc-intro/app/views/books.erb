@@ -1,0 +1,6 @@
+<h1> Index 💪 page</h1>
+
+
+<% @books.each do |book| %>
+  <a href=<%= "/books/#{book.id}" %>><%= book.title %></br></a>
+<% end %>
