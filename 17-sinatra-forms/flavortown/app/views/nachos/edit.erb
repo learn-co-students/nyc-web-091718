@@ -1,0 +1,10 @@
+<h1> Edit DAT NACHO!!! </h1>
+
+
+<form action="/nachos/<%= @nacho.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="name" value="<%= @nacho.name %>">
+  <input type="text" name="toppings" value="<%= @nacho.toppings %>">
+  <input type="number" name="spicy" value="<%= @nacho.spicy %>">
+  <input type="submit" value="submit">
+</form>
