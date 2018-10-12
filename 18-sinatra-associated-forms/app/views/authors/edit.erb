@@ -1,0 +1,8 @@
+<h1> EDITOR! the BURNINATOR AUTHOR! </h1>
+
+
+<form action="/authors/<%= @author.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="author[name]" value="<%= @author.name %> ">
+  <input type="submit" value="SUBMIT THAT FORM! GOOD ANSWER!!">
+</form>
