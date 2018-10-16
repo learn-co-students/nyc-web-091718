@@ -1,0 +1,10 @@
+<h1> Index </h1>
+
+
+<% @creatures.each do |creature| %>
+  <%= link_to "#{creature.name}", creature_path(creature) %> </br>
+  <%= link_to "DESTR0Y!", creature_path(creature), method: :delete %></br>
+  <%= button_to('Destroy', creature_path(creature),
+          method: "delete", data: { confirm: 'Are you sure?'}) %>
+
+<% end %>

@@ -1,0 +1,16 @@
+<h1> NEW ONE!!! $$$$ for song tho... 🤑 </h1>
+
+<%= form_for @song do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <!--
+  first arg is method we want to call on @song (:artist_id)  THE KEY🔑 for my Params,
+  the collection we want to use to populate the dropdown(Artist.all || @artists which is a reference from the controller to be Artist.all),
+  the value we want in our params: Artist#id,
+  what do we want to display in the tag itself? Artist#name
+-->
+
+
+  <%= f.collection_select(:artist_id, @artists, :id, :name) %>
+  <%= f.submit %>
+<% end %>

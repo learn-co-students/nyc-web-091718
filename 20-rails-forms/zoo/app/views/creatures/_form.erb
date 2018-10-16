@@ -1,0 +1,11 @@
+
+<%= form_for @creature do |f| %>
+  <%= f.label :name %>
+  <!-- calling @creature.name -->
+  <%= f.text_field :name %>
+  <%= f.label :species %>
+  <%= f.text_field :species %>
+  <%= f.label :leggies %>
+  <%= f.number_field :num_legs %>
+  <%= f.submit %>
+<% end %>

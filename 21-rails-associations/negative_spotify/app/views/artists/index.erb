@@ -1,0 +1,7 @@
+<h1> FUNDEX</h1>
+
+<% @artists.each do |artist| %>
+  <%= link_to artist.name, artist_path(artist) %>
+  <%= link_to "edit", edit_artist_path(artist) %>
+  <%= link_to "destroy", artist_path(artist), method: :delete %>
+<% end %>
