@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  toppings: MyString
+  size: 1
+  slices_left: false
+
+two:
+  toppings: MyString
+  size: 1
+  slices_left: false
