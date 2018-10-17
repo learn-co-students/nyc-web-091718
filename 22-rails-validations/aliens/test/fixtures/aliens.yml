@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  legs: 1
+  planet: MyString
+  eats_humans: false
+
+two:
+  name: MyString
+  description: MyString
+  legs: 1
+  planet: MyString
+  eats_humans: false

@@ -1,0 +1,6 @@
+<h1> ALIENS MAN 👾</h1>
+
+
+<% @aliens.each do |alien| %>
+  <%= link_to alien.name, alien_path(alien) %>
+<% end %>
