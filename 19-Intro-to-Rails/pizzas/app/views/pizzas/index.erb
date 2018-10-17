@@ -1,0 +1,6 @@
+<% @pizzas.each do |pizza| %>
+  <%= pizza.toppings %>
+  <%= pizza.size %>
+  <%= pizza.slices_left %>
+  <%= link_to(pizza.toppings, pizza_path(pizza)) %>
+<% end %>
