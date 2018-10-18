@@ -1,0 +1,11 @@
+
+
+<%= form_tag '/paintings', method: 'get' do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag %>
+<% end %>
+
+
+<% @paintings.each do |painting| %>
+    <%= link_to painting.name, painting_path(painting) %><br>
+<% end %>
