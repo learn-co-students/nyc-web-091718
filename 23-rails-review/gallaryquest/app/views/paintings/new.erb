@@ -1,0 +1,17 @@
+
+<% if flash[:error] %>
+  <% flash[:error].each do |error| %>
+  <%= error %>
+  <% end %>
+<% end %>
+
+<%= form_for @painting do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :value %>
+  <%= f.number_field :value %>
+  <%= f.label :oil %>
+  <%= f.check_box :oil %>
+  <%= f.collection_select :gallery_id, @galleries, :id, :name %>
+  <%= f.submit %>
+<% end %>

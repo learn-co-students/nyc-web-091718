@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  sqfootage: 1
+  location: MyString
+  banksy_has_shredded_here: false
+
+two:
+  name: MyString
+  sqfootage: 1
+  location: MyString
+  banksy_has_shredded_here: false
