@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auth</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/en/5/59/Beaker_%28Muppet%29.jpg">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= logged_in? ? button_to('Logout', logout_path, method: :delete) : link_to('Login', login_path) %>
+    <%= yield %>
+  </body>
+</html>
