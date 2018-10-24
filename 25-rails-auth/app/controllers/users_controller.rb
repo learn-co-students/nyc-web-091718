@@ -41,9 +41,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    flash[:notice] = "Deleted account for #{@user.username}"
-    redirect_to new_user_path
+    if @user == current_user
+      @user.destroy
+      flash[:notice] = "Deleted account for #{@user.username}"
+      redirect_to new_user_path
+    else
+      flash[:notice] = 'You are not authorized to do that'
+      redirect_to new_user_path
   end
 
   private

@@ -4,17 +4,7 @@
 
 <%= image_tag @user.profile_photo %>
 
-<hr>
-
-<h4>Songs: </h4>
-
-<ol>
-  <% @user.songs.each do |song| %>
-    <li><%= song.title %> by <%= song.artist.name %></li>
-  <% end %>
-</ol>
-
-<hr>
-<% if @user == current_user %>
-  <%= button_to "Delete Account", @user, method: :delete %>
+<% if session[:user_id] == @user.id %>
+  <%= button_to "Delete Account", @user, method: :delete, data: { confirm: "you sure tho? Lolzz" } %>
+  <%= button_to "logout", logout_path, method: :delete, data: { confirm: " Lolzz log out confirmation" } %>
 <% end %>
