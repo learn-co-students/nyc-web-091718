@@ -231,7 +231,7 @@ If you need quicker and more simple debugging, `console.log` or `console.dir` is
 
 ---
 
-![history of JS infographic](https://visual.ly/node/image/702641?_w=600)
+![history of JS infographic](https://visual.ly/node/image/702641)
 
 ---
 
