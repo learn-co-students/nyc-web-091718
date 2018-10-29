@@ -365,6 +365,10 @@ logCallBack(returnThinker) //'¿🤔?'
 
 #### Functions that _return other functions_ 🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
 
+- "In mathematics and computer science, a higher-order function is a function that does at least one of the following:
+  - takes one or more functions as arguments (i.e. procedural parameters),
+  - returns a function as its result." - [Higher Order Functions](https://en.wikipedia.org/wiki/Higher-order_function)
+
 
 ```javascript
 function outerFn() {
@@ -464,6 +468,7 @@ multiplyByTwo(10) //20
 - [Air BnB JS StyleGuide](https://github.com/airbnb/javascript)
 - [MDN Article on ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_2015_support_in_Mozilla)
 - [Stack Overflow Post on Chrome Debugger Variables Not Being in Scope](https://stackoverflow.com/questions/28388530/why-does-chrome-debugger-think-closed-local-variable-is-undefined)
+- [Higher Order Functions](https://en.wikipedia.org/wiki/Higher-order_function)
 
 
 ![curly bois](https://i.imgur.com/ZwfLpVW.jpg)
