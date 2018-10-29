@@ -22,4 +22,13 @@ say_name(name)
 
 say_global_name
 
-# hoisting
+hoisting
+puts friends #friends has not been declared yet!
+
+friends = 'Chandler Bing'
+
+not_hoised()
+
+def not_hoised
+  puts 'i yam not hoisted lol'
+end
