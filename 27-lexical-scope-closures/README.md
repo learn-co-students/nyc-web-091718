@@ -120,6 +120,15 @@ function fnScope() {
 }
 console.log(blockVar) //Uncaught ReferenceError: blockVar is not defined
 
+// another example:
+
+const pigs = { canFly: true }
+if (pigs.canFly) {
+  const hogName = 'tiny'
+}
+
+console.log(hogName) //Uncaught ReferenceError: hogName is not defined
+
 ```
 
   - Important side note about the code above: depending on the context, `{}` (curlyboys™️) can be a function body, block, or an object literal `{ pizza: 'hut', key: 'value' }`
