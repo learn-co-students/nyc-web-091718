@@ -1,6 +1,7 @@
 # Introduction to JavaScript
 
 ### History of JavaScript
+![Brendan Eich](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Brendan_Eich_Mozilla_Foundation_official_photo.jpg/1280px-Brendan_Eich_Mozilla_Foundation_official_photo.jpg)
 * Early Days
   * Created by Brandon Eich at Netscape in 10 days in 1995
   * Was not a highly respected programming language for about 10 years
@@ -8,11 +9,17 @@
   * Applications like Google Maps and Gmail were where JavaScript shone again
 * Standards
   * The standard for JavaScript implementations is called ECMAScript
-  * The standard is updated yearly and the standard for that year is called ECMAScript 20xx (or ES 20xx)
+    * Given that there are several **competing** JavaScript engines, the [European Computer Manufacturers Association (ECMA)](https://en.wikipedia.org/wiki/Ecma_International) is responsible for standardizing JavaScript, referred to as [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+  * The standard is updated yearly and the standard for that year is called ECMAScript 20xx (or ES 20xx); ES2015 or ES6.
   * [Browser Wars](https://en.wikipedia.org/wiki/Browser_wars) still leave us with legacy JavaScript implementations (and weirdness)
   * We can use transpiling to write JavaScript according to the standard we want and convert it to code that can be used for the majority of JavaScript applications (more on this in mod4)
 
+![Netscape Navigator](https://images.mentalfloss.com/sites/default/files/styles/mf_image_16x9/public/netscape-hero.jpg?itok=AdVWGuMc&resize=1100x1100)
+
 ### Review Request-Response Cycle
+
+![HTTP request response cycle from : https://www.oreilly.com/library/view/using-google-app/9780596802462/ch01.html](https://www.oreilly.com/library/view/using-google-app/9780596802462/httpatomoreillycomsourceoreillyimages295368.png)
+
 * Request-Response lifecycle
   * Some code makes a request to a server
   * We get a response back with data in binary, text, HTML, or JSON
@@ -225,3 +232,14 @@ If you need quicker and more simple debugging, `console.log` or `console.dir` is
 ---
 
 ![history of JS infographic](https://visual.ly/node/image/702641?_w=600)
+
+---
+
+## External Resources
+- [ECMA](https://en.wikipedia.org/wiki/Ecma_International)
+- [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+- [Mozilla Developer Network](https://developer.mozilla.org/en-US/)
+- [HTTP Request Response Cycle](https://www.oreilly.com/library/view/using-google-app/9780596802462/ch01.html)
+- [Browser Wars](https://en.wikipedia.org/wiki/Browser_wars)
+- [Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich)
+- [Netscape](https://en.wikipedia.org/wiki/Netscape)
