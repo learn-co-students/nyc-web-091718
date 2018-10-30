@@ -1,3 +1,5 @@
+# Intro to the DOM 📜
+
 # The Browser (DOM, BOM)
 * What is it?
   * The HTML you write?
@@ -220,3 +222,4 @@ Students will go to their favorite websites and modify the DOM programmatically.
   - [MDN Document.createElement()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
   - [MDN Element.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
   - [When are Selected HTML Elements Live](https://stackoverflow.com/questions/28163033/when-is-nodelist-live-and-when-is-it-static)
+- [Difference Between the DOM and the BOM](https://stackoverflow.com/questions/4416317/what-is-the-dom-and-bom-in-javascript)

@@ -1,17 +1,15 @@
 # Introduction to Functional programming
 
-
-- So far, we've been introduced to Object Oriented programming in Ruby. There is another approach called functional programming. Remember that JavaScript allows us to solve problems using both an OO approach and a Functional approach (we'll learn more about OO JavaScript later). JavaScript is a multiparadigm language.
-
+- Recall that JavaScript is a _multiparadigm_ language; we can solve problems using functional programming and/or object oriented programming principles.
   - The key difference between the two paradigms is that Object-Oriented programming focuses on **what our objects are**. Perhaps we have an `Animal` class and a `Dog` class that inherits from `Animal`. Our classes our concerned with shared functionality and shared state (more on that later)
-  - Functional programming on the other hand is primarily concerned with **the behavior of our app** what should this app do, what is the functionality we need. Instead of creating classes with shared state and functionality, we might instead rely on a series of functions that can be _composed_ together to solve a particular problem.
+  - Functional programming on the other hand is primarily concerned with **the behavior of our app**––what should this app do, what is the functionality we need? Instead of creating classes with shared state and functionality, we might instead rely on a series of functions that can be _composed_ together to solve a particular problem. We've already seen this in ES6: `.map`, `.reduce`, `.filter`, `.forEach` for example.
 
 ---
 
 ### Functions As First Class Objects
 
-- Recall that functions are first class objects in JavaScript:
-  - "A programming language is said to have First-class functions when functions in that language are treated like any other variable. For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable." [MDN Article on First Class Functions](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function)
+- Recall that functions are **first class objects in JavaScript:**
+  - "A programming language is said to have First-class functions when **functions in that language are treated like _any other variable_.** For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable." - [MDN Article on First Class Functions](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function)
   - Functions can be assigned to variables:
 
 ```javascript
@@ -23,8 +21,12 @@ const eatDoughnut = function() {
 - Functions can be passed to other functions as arguments:
 
 ```javascript
-const logCallback = function(callbackFn) {
-  console.log(callbackFn())
+const isCallBackTrue = function(callbackFn) {
+  if (callbackFn()) {
+    return 'TRUE!'
+  } else {
+    return 'FALSE!'
+  }
 }
 ```
 
