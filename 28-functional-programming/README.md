@@ -2,7 +2,15 @@
 
 - Recall that JavaScript is a _multiparadigm_ language; we can solve problems using functional programming and/or object oriented programming principles.
   - The key difference between the two paradigms is that Object-Oriented programming focuses on **what our objects are**. Perhaps we have an `Animal` class and a `Dog` class that inherits from `Animal`. Our classes our concerned with shared functionality and shared state (more on that later)
-  - Functional programming on the other hand is primarily concerned with **the behavior of our app**––what should this app do, what is the functionality we need? Instead of creating classes with shared state and functionality, we might instead rely on a series of functions that can be _composed_ together to solve a particular problem. We've already seen this in ES6: `.map`, `.reduce`, `.filter`, `.forEach` for example.
+  - Functional programming on the other hand is primarily concerned with **the behavior of our app**––what should this app do, what is the functionality we need? Instead of creating classes with shared state and functionality, we might instead rely on a series of functions that can be _composed_ together to solve a particular problem. We've already seen this in ES6: `.map`, `.reduce`, `.filter`, `.forEach` for example. These ES6 functions do not know or care about the callback they will be passed as an argument:
+
+```js
+[1, 2, 3].forEach(function() {
+  console.log('I WANT 2 EAT PANCAKES ALL DAY LONG')
+})
+
+// 'I WANT 2 EAT PANCAKES ALL DAY LONG' logged 3 times
+```
 
 ---
 
@@ -33,19 +41,19 @@ const isCallBackTrue = function(callbackFn) {
 - Functions can also return other functions:
 
 ```javascript
-const higherOrderFn = function() {
+const outerFn = function() {
   const innerVar = 'I am not a global variable'
   return function() {
     console.log(innerVar)
   }
 }
 
-higherOrderFn() //returns a function definition
+outerFn() //returns a function definition
 
-higherOrderFn()() // 'I am not a global variable'
+outerFn()() // 'I am not a global variable'
 ```
 
-- Notice the `()()` in the example above. Invoking `higherOrderFn` returns a function. In order to execute the return value of `higherOrderFn` I have to use `()` again.
+- Notice the `()()` in the example above. Invoking `outerFn` returns a function. In order to execute the return value of `outerFn` I have to use `()` again.
 
 ---
 
@@ -65,13 +73,23 @@ p = Proc.new { |var| puts var }
 
 - A `Proc` however is **not** a method. Instead, it is a _block of code_ that I can reuse. JavaScript however, allows me to pass functions around as arguments:
 
+```js
+function logVar(variable) {
+  console.log(variable)
+}
+
+[1, 2, 3].forEach(logVar)
+```
+
+- `logVar` is a **function** that I can pass to `forEach` as an argument.
+
 ---
 
 ### Arrow Functions
 
 - Arrow functions were introduced by [ES6/ ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_2015_support_in_Mozilla). They provide a new syntax for declaring functions.
 
-- Instead of using the `function` keyword, [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) can be declared with a new syntax:
+- Instead of using the `function` keyword, [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) can be declared with a different syntax:
 
 ```javascript
 const arrowFn = () => {
@@ -136,13 +154,19 @@ const iifeVal = (function myIIFE() {
 //myIIFE //Uncaught ReferenceError: myIIFE is not defined
 ```
 
-- This allows me to immediately execute my function once and then lose reference too it. It's a one and done function.
-
 ---
 
 ### Functional Programming Principles
 
-- "**Functional programming** (often abbreviated FP) is the process of building software by composing **pure functions**, avoiding **shared state**, **mutable data**, and **side-effects**." - [Master the JS Interview: What is Functional Programming?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
+- "**Functional programming** (often abbreviated FP) is the process of building software by composing **pure functions**, avoiding **shared state**, **mutable data**, and **side-effects**. Functional programming is **declarative** rather than **imperative**, and application state flows through pure functions. Contrast with object oriented programming, where application state is usually shared and colocated with methods in objects." - [Master the JS Interview: What is Functional Programming?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
+   - Imperative programming has more to do with **how** to do things; a series of tasks/operations for the computer to perform. It is typically contrasted with declarative programming
+   - Declarative programming has more to do with **what** a program needs to accomplish without specifying how a task should be completed
+
+- `map`, for instance will transform an array based on a callback, but we do not need to focus on **how** that task is accomplished:
+
+```js
+['winfield', 'charlotte'].map((name) => name.toUpperCase())
+```
 
 ---
 
@@ -180,7 +204,7 @@ const capitalizeNames = (namesArray) => {
 ```
 
 - The function above is pure because it returns a **copy** instead of mutating the argument passed in. Given the same input, it will always return the same output.
-  - If we use the ES6 [`map` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), which is also a pure function:
+  - We can also use the ES6 [`map` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), which is also a pure function:
 
 ```javascript
 const instructorNames = [
@@ -196,6 +220,8 @@ const instructorNames = [
   'laura',
   'brooke'
 ]
+
+// remember arrow fn without curlies will implicitly return
 
 instructorNames.map((name) => name.toUpperCase())
 // the original array remains unchanged
@@ -269,6 +295,32 @@ nums //[1, 2, 3]
 
 - `Array.prototype.map` will return a _copy_ of the array on which it is called, thereby avoiding mutating state.
 
+- Alternatively, we can use [`Object.freeze`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) to avoid mutating state:
+
+```js
+const frozenPizza = Object.freeze({  restaurant: 'Piza Hut' })
+// will now throw an error, but it does not change the object
+frozenPizza.restaurant = 'Sbarros Authentic New York Pizza™'
+
+
+console.log(frozenPizza) //{  restaurant: 'Piza Hut' }
+```
+
+---
+
+### Side Effects
+
+- "A side effect is any application state change that is observable outside the called function other than its return value. Side effects include:
+
+  - Modifying any external variable or object property (e.g., a global variable, or a variable in the parent function scope chain)
+  - Logging to the console
+  - Writing to the screen
+  - Writing to a file
+  - Writing to the network
+  - Triggering any external process
+  - Calling any other functions with side-effects
+  - Side effects are mostly avoided in functional programming, which makes the effects of a program much easier to understand, and much easier to test." - [Master the JS Interview: What is Functional Programming](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
+
 ---
 
 ### Composition
@@ -304,5 +356,6 @@ multiplyByTen(5) //50
 - [MDN Reference on New JS Featured Introduced by ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_2015_support_in_Mozilla)
 - [MDN Article on Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 - [Master the JS Interview: What is Functional Programming?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
+- [`Object.freeze`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
 - [Array.prototype.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 - [MPJ Video Series on Functional Programming](https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84)
