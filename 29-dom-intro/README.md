@@ -1,225 +1,226 @@
 # Intro to the DOM 📜
 
-# The Browser (DOM, BOM)
-* What is it?
-  * The HTML you write?
-  * The page source?
-  * The Elements tab in Dev Tools?
-* How does JavaScript work in the browser?
-  * Browser code
-  * JavaScript engine
-  * JavaScript standard library
-  * Browser APIs
-  * Your code!
-* DOM (Document Object Model)
-  * A tree structure starting at the document
-  * Every element is a node in the tree
-  * Every element is related in this structure to every other element
-  * We can find elements by traversing the DOM
-  * Each element has a parent (except one) and children (maybe)
-  * Elements have properties that can be manipulated
-  * `window` object
-  * `document` object
-* Element interfaces
-  * Different elements (`table`, `p`, `image`) support different methods
-  * You have to look up the element (in documentation or in prototype chain) to know what properties are accessible to change and methods available to call
-* BOM (Browser Object Model)
-  * The things that we can access about the browser in our code
-  * Examples
-    * `console` object
-    * `navigator` object
-    * `location` object
-    * `history` object
-    * `localStorage` object
-    * timers
-  * Everything that is not part of the document!
-* DOM and BOM APIs
-  * The code that is available to us to manipulate the DOM and the BOM :)
-* Templating
-  * We used to use ERB
-  * Now we'll write templates for dynamically updating our web page without refreshing
+### The Document Object Model Overview
+- What is the DOM?
+  - The DOM (Document Object Model) is a representation of an HTML document as a **tree** (more on this later) that can be manipulated with JavaScript
+  - Javascript is a language created to manipulate the DOM
+  - "[JavaScript] DOM methods allow programmatic access to the tree; with them you can change the document's structure, style or content." - [MDN DOM Reference](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (more on this later)
 
 
+## The DOM is a Tree 🎄
 
+- What is a tree in computer science? A data structure that represents some hierarchical structure; parent nodes (elements), child nodes, sibling nodes. Trees look like upside down trees:
 
+![tree](https://webdocs.cs.ualberta.ca/~aixplore/learning/DecisionTrees/InterArticle/graphics/inverted-tree.gif)
 
+- Here is another representation of a tree with a root node and several children or branches:
 
+![tree data structure](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/300px-Binary_tree.svg.png)
 
+- Here is a representation of our HTML as a tree. This is the DOM:
 
+![tree structure via tutorial republic](https://www.tutorialrepublic.com/lib/images/html-dom-tree.gif)
 
+---
 
+- DOM (Document Object Model)
+  - The DOM is a tree structure with several child `nodes`. All of the elements in the tree are related to each other. Some elements may have children:
 
+```html
+<!-- document.body gives us the body node -->
+<body>
 
-
-
-
-
-
-
-
-
-  # Intro To The DOM JS
-
-## SWBATs
-* Define the DOM and DOM nodes
-* Add event listeners to DOM elements
-* Query the DOM using selectors
-* Manipulate the DOM by adding, removing, and editing the properties of DOM elements
-* Use (or at least recognize) jQuery
-* Use the Chrome Developer tools to debug
-
-## Resources
-* [The DOM](https://www.youtube.com/watch?v=oVp-CKK25NM)
-
-## Outline
-
-```
-  10m | The Document Object Model and Developer Tools
-   5m | CSS Selectors
-  10m | Selecting DOM Nodes
-  10m | Modifying DOM Nodes
-  10m | Creating DOM Nodes
-  15m | Activity
-  ----|----
-  60m | Total
-```
-
-### The Document Object Model
-* What is the DOM?
-  * Object-oriented representation of the webpage which allows programs to manipulate the properties and contents on the page
-  * When HTML is compiled, the DOM is created based on that HTML
-  * Javascript is a language created to manipulate the DOM
-
-* Brief tour of Developer Tools
-  * Open the Dev Tools by right-clicking on the page and selecting 'View Page Source' from the context menu
-  * View DOM in the 'Elements' tab
-    * Show that HTML is directly editable in the main panel
-    * Show 'Styles' tab to view and manipulate CSS
-    * Show pointer feature to find elements by hovering over the DOM
-  * JS Console
-    * If they haven't seen it already, show them how the console works
-
-### CSS Selectors
-* Individual selectors
-  * Class `.class`
-  * ID `#id`
-  * Tag `div`
-* Combining Selectors
-  * Space between `#parent .child`
-  * Chain `div.image.highlighted`
-
-### Selecting DOM Nodes
-* Understand types that are returned form selecting a DOM node with JavaScript
-* Understand how to use CSS selectors
-* Methods
-
-  ```js
-  node.querySelector('#unique-element')
-  node.querySelectorAll('.some-shared-class')
-  node.getElementsByTagName('body')[0]
-  node.getElementById('unique-element')
-  node.getElementsByClassName('some-shared-class')
-  ```
-  * Mention that `NodeList` is array-like, but does not have iterators built on it. Can be borrowed from `Array.prototype`
-  * Chain CSS selectors to get greater specificity
-
-### Modifying DOM Nodes
-* Storing node in a variable `let body = document.querySelector('body')`
-* Changing attributes `body.style.backgroundColor = red`
-* `innerText` and `textContent` vs. `innerHTML`
-* Removing elements `document.removeChild(body)`
-
-### Creating DOM Objects
-* Instantiating new elements `let element = document.createElement('img')`
-* Adding attributes to elements `element.src = 'http://www.coooolimage.com'`
-* Appending to node `document.body.appendChild(element)`
-
-### Activity
-Students will go to their favorite websites and modify the DOM programmatically. Wikipedia and Twitter are good examples.
-
-* Students should:
-  * Select elements and save them to variables
-  * Delete at least 2 elements
-  * Modify elements (e.g., replace image url, change text, change CSS)
-  * Create new elements and add to page
-
-* Encourage students to think programmatically about the DOM by giving them problems that involve iteration and the use of multiple CSS selectors
-  * Change all instances of one word
-  * Replace all images on only a certain portion of the DOM
-  * Change every other header
-  * Bonus (Hard): replace all elements of one tag to another (e.g., `p` to `h1`)
-
-
-
-
-
-
-
-
-
-
-
-  # The Document Object Model
-
-  ## Outline
-
-  - Understand the Structure of the Document Object Model
-  - Use JavaScript to manipulate the DOM
-  - Use JavaScript to append elements to the DOM using `document.createElement` and string templates
-
-  ## The DOM is a Tree 🎄
-
-  - DOM (Document Object Model)
-    - The DOM is a tree structure with several child `nodes`. All of the elements in the tree are related to each other. Some elements may have children:
-
-  ```html
-  <!-- document.body gives us the body node -->
-  <body>
-
-      <div id="outer-node"><!-- div is a child of body -->
-        <div><!-- this div is a child of outer-node -->
-          <div>
-            <h1>Internet Memes</h1>
-          </div>
+    <div id="outer-node"><!-- div is a child of body -->
+      <div><!-- this div is a child of outer-node -->
+        <div>
+          <h1>Internet Memes</h1>
         </div>
       </div>
-  </body>
-  ```
+    </div>
+</body>
+```
 
-  - This tree structure starts at the `document`, where `document` is the parent of each individual `node` (HTML Element). Every single HTML element in the DOM is a `node`: `<p></p>`, `<h1></h1>`, `<img>`, etc.
-  - JavaScript allows us to **traverse** this tree to find and _manipulate_ different `nodes` (we'll see how in a bit).
-    - "The DOM model represents a document with a logical tree. Each branch of the tree ends in a node, and each node
-      contains objects. DOM methods allow programmatic access to the tree; with them you can change the document's
-      structure, style or content." -
-      [MDN Article on the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
-  - Elements (`nodes`) have properties that can be manipulated (`style`, `innerText`, `innerHTML`, etc). In this particular example, we'll be manipulating the `.src` attribute of some `img` tags.
-  - Element interfaces
-    - Different elements (`table`, `p`, `image`) support different methods
-      - `image.src`, for instance
-      - `document.body.style.backgroundColor = 'red'`
-    - Refer to the documentation for each element you wish to manipulate to find out which propterties/attributes you can manipulate. [MDN HTML Element Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+---
 
-  ## Manipulating the DOM with JavaScript
+- This tree structure starts at the `document`, where `document` is the topmost **parent** of each individual `node` (HTML Element). Every single HTML element in the DOM is a `node`: `<p></p>`, `<h1></h1>`, `<img>`, etc. **If you are not comfortable with HTML syntax and/or HTML tags, go through the [intro to HTML section on W3Schools](https://www.w3schools.com/html/html_intro.asp)**
+- JavaScript allows us to **traverse** this tree to find and _manipulate_ different `nodes` (we'll see how in a bit).
+  - "The DOM model represents a document with a logical tree. Each branch of the tree ends in a node, and each node
+    contains objects. DOM methods allow programmatic access to the tree; with them you can change the document's
+    structure, style or content." -
+    [MDN Article on the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+- Elements (`nodes`) have properties that can be manipulated (`style`, `innerText`, `innerHTML`, etc). In this particular example, we'll be manipulating the `.src` attribute of some `img` tags.
+- Element interfaces
+  - Different elements (`table`, `p`, `image`) support different methods
+    - `image.src`, for instance
+    - `document.body.style.backgroundColor = 'red'`
+  - Refer to the documentation for each element you wish to manipulate to find out which properties/attributes you can manipulate. - [MDN HTML Element Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
-  | Selector name                      | Return shape   | Return type    | Live? | Reference             | can i call forEach? |
-  | ---------------------------------- | -------------- | -------------- | ----- | --------------------- | -------- |
-  | `document.getElementById()`        | Single element | Element        | N/A   | https://goo.gl/8cHGoy | N/A      |
-  | `element.getElementsByClassName()` | Collection     | HTMLCollection | Yes   | https://goo.gl/qcAhcp | No       |
-  | `element.getElementsByTagName()`   | Collection     | HTMLCollection | Yes   | https://goo.gl/QHozSh | No       |
-  | `element.querySelector()`          | Single element | Element        | N/A   | https://goo.gl/6Pqbcc | N/A      |
-  | `element.querySelectorAll()`       | Collection     | NodeList       | No    | https://goo.gl/vTfXza | Yes      |
+---
 
-  ---
+### Selecting DOM Nodes
 
-  ## External Resources:
+- There are certain built in JavaScript functions that allow us to traverse the DOM and find specific elements in the tree:
 
-  - [MDN Article on the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
-  - [MDN Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)
-  - [MDN NodeList reference](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)
-  - [MDN HTMLCollection reference](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
-  - [CSS Selectors Cheatsheet](https://guide.freecodecamp.org/css/tutorials/css-selectors-cheat-sheet/)
-  - [MDN Document.createElement()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
-  - [MDN Document.createElement()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
-  - [MDN Element.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
-  - [When are Selected HTML Elements Live](https://stackoverflow.com/questions/28163033/when-is-nodelist-live-and-when-is-it-static)
+- We can search for single elements:
+  - `document.getElementById('element-id')` will find an HTML element with a particular id
+  - `node.querySelector` is more open-ended and will find whatever you tell it to:
+    - `node.querySelector('div')` will find the first `<div></div>` tag in the tree
+    - `node.querySelector('.btn-small')` will find the first element with a **CSS Class of `btn-small`**
+    - `node.querySelector('#search-input')` will find the element with a **CSS ID of `search-input`**
+    - Note the distinction above. CSS classes are preceded by a `.`; CSS ids are preceded by a `#`
+- We can also search for multiple elements:
+  - `node.getElementsByTagName('p')` will return all instances of a particular tag; in the example above, all `<p></p>` tags.
+  - `node.getElementsByClassName('btn-small')` will return all elements that have a particular CSS Class
+  - `node.querySelectorAll('.btn-small')` will return **all** of the elements with a class of `btn-small`
+- We can also combine selectors for more specificity:
+  - We need a space between `#parent .child`
+  - We can chain selectors `div.image.highlighted`
+  - We can search for siblings with `~`
+
+```html
+<div id="outer-node">
+  <div>
+    <div>
+      <h1>Internet Memes</h1>
+    </div>
+  </div>
+</div>
+```
+
+```js
+const nestedH1 = document.querySelectorAll('#outer-node h1')
+
+```
+- The snippet above will look for any `<h1></h1>` tags **inside** the element with a CSS ID of `outer-node`
+
+- **IMPORTANT** you will get an _array-like_ object such as a `NodeList` back from some of the methods above. Refer to the chart at the bottom of this document for more info. If you need to call `Array` methods like `.map` or `.forEach`, you can convert your `NodeList` or `HTMLCollection` into an array like so:
+
+```js
+const nestedH1 = document.querySelectorAll('#outer-node h1') //NodeList
+
+nestedH1.map //undefined
+
+const nestedH1AsArray = Array.from(nestedH1) //array
+
+nestedH1AsArray.map //function
+
+```
+
+- Refer to the [documentation if you are unfamiliar with `Array.from`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+
+---
+
+### Modifying DOM Nodes
+- We can assign a `node` to a variable: `const body = document.querySelector('body')`
+- We can change the attributes of a `node`: `body.style.backgroundColor = red`
+- `innerText`vs. `innerHTML`:
+  - The `innerText` of a particular element is the text that appears in between the opening and closing tags: `<h1>HELLO WORLD</h1>` the `innerText` is the string `HELLO WORLD`
+  - The `innerHTML` of a particular element is a **string representing all of the HTML and text of a particular node and its children***:
+
+```html
+<div id="outer-node">
+  <div>
+    <div>
+      <h1>Internet Memes</h1>
+    </div>
+  </div>
+</div>
+```
+
+```js
+const outerNode = document.querySelector('#outer-node')
+
+outerNode.innerText // 'Internet Memes'
+outerNode.innerHTML
+/*
+"
+          <div>
+            <div>
+              <h1>Internet Memes</h1>
+            </div>
+          </div>
+        "
+*/
+```
+
+---
+
+### Removing Nodes
+- `node.removeChild(childNode)` will remove a particular child
+- `node.remove()` will remove the node on which it was called:
+
+```html
+<div id="outer-node">
+  <div>
+    <div>
+      <h1>Internet Memes</h1>
+    </div>
+  </div>
+</div>
+
+<div id="container">
+  <p>Add Images Here</p>
+  <!-- <img src=""> -->
+</div>
+```
+
+```js
+const innerH1 = document.querySelector('#outer-node h1')
+
+innerH1.remove() //removes the node from the page
+
+//OR
+
+const container = document.querySelector('#container')
+
+const containerPTag = document.querySelector('#container p')
+
+container.removeChild(containerPTag) //removes the child p tag
+```
+
+---
+
+### Creating DOM Objects
+- Creating new nodes `const myImg = document.createElement('img')`
+- Adding attributes to elements `img.src = 'http://www.coooolimage.com'`
+- Appending to node `document.body.appendChild(element)` will add that node to the `<body></body>`
+
+---
+
+### Activity
+- With the person sitting next to you, navigate to your favorite website (NewYorkTimes or Twitter are good examples):
+  - Select elements and save them to JavaScript variables
+  - Remove at least 2 elements from the page
+  - Modify elements (e.g., replace image url, change text, change CSS)
+  - Create new elements and add them to the page
+  - Change all instances of one word on the page
+  - Replace all images on only a certain portion of the DOM
+  - Change every other header
+  - Bonus (Hard): replace all elements of one tag to another (e.g., `p` to `h1`)
+
+---
+
+## Manipulating the DOM with JavaScript Chart
+
+| Selector name                      | Return shape   | Return type    | Live? | Reference             | can i call forEach? |
+| ---------------------------------- | -------------- | -------------- | ----- | --------------------- | -------- |
+| `document.getElementById()`        | Single element | Element        | N/A   | https://goo.gl/8cHGoy | N/A      |
+| `element.getElementsByClassName()` | Collection     | HTMLCollection | Yes   | https://goo.gl/qcAhcp | No       |
+| `element.getElementsByTagName()`   | Collection     | HTMLCollection | Yes   | https://goo.gl/QHozSh | No       |
+| `element.querySelector()`          | Single element | Element        | N/A   | https://goo.gl/6Pqbcc | N/A      |
+| `element.querySelectorAll()`       | Collection     | NodeList       | No    | https://goo.gl/vTfXza | Yes      |
+
+---
+
+## External Resources:
+
+- [MDN Article on the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+- [MDN Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)
+- [MDN NodeList reference](https://developer.mozilla.org/en-US/docs/Web/API/NodeList)
+- [MDN HTMLCollection reference](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
+- [CSS Selectors Cheatsheet](https://guide.freecodecamp.org/css/tutorials/css-selectors-cheat-sheet/)
+- [MDN Document.createElement()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
+- [MDN Document.createElement()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
+- [MDN Element.innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
+- [When are Selected HTML Elements Live](https://stackoverflow.com/questions/28163033/when-is-nodelist-live-and-when-is-it-static)
 - [Difference Between the DOM and the BOM](https://stackoverflow.com/questions/4416317/what-is-the-dom-and-bom-in-javascript)
