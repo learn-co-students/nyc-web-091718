@@ -1,7 +1,7 @@
 # Introduction to Functional programming
 
 
-- Functional programming is another tool for solving problems. So far, we've been introduced to Object Oriented programming in Ruby. There is another approach called functional programming. Remember that JavaScript allows us to solve problems using both an OO approach and a Functional approach (we'll learn more about OO JavaScript later).
+- So far, we've been introduced to Object Oriented programming in Ruby. There is another approach called functional programming. Remember that JavaScript allows us to solve problems using both an OO approach and a Functional approach (we'll learn more about OO JavaScript later). JavaScript is a multiparadigm language.
 
   - The key difference between the two paradigms is that Object-Oriented programming focuses on **what our objects are**. Perhaps we have an `Animal` class and a `Dog` class that inherits from `Animal`. Our classes our concerned with shared functionality and shared state (more on that later)
   - Functional programming on the other hand is primarily concerned with **the behavior of our app** what should this app do, what is the functionality we need. Instead of creating classes with shared state and functionality, we might instead rely on a series of functions that can be _composed_ together to solve a particular problem.
@@ -28,7 +28,7 @@ const logCallback = function(callbackFn) {
 }
 ```
 
-- Functions can also return other functions (these are referred to as higher order functions):
+- Functions can also return other functions:
 
 ```javascript
 const higherOrderFn = function() {
@@ -44,6 +44,24 @@ higherOrderFn()() // 'I am not a global variable'
 ```
 
 - Notice the `()()` in the example above. Invoking `higherOrderFn` returns a function. In order to execute the return value of `higherOrderFn` I have to use `()` again.
+
+---
+
+## Drawing Ruby Parallels: `Proc`
+
+- In Ruby, I can define a block of code and pass it to another method:
+
+```ruby
+p = Proc.new { |var| puts var }
+
+[1, 2, 3].each(&p)
+
+# as opposed to:
+
+[1, 2, 3].each { |num| puts num }
+```
+
+- A `Proc` however is **not** a method. Instead, it is a _block of code_ that I can reuse. JavaScript however, allows me to pass functions around as arguments:
 
 ---
 
@@ -108,8 +126,9 @@ const multiLineArrow = () => {
 - Functions in JavaScript can also be invoked as soon as they're defined. Note that I will not be able to reference my function:
 
 ```javascript
-(function myIIFE() {
+const iifeVal = (function myIIFE() {
   console.log('immediately invoked!')
+  return 'hi'
 })() //'immediately invoked!'
 
 //myIIFE //Uncaught ReferenceError: myIIFE is not defined
@@ -182,6 +201,24 @@ instructorNames.map((name) => name.toUpperCase())
 
 - Think of pure functions like black boxes that perform the same predictable operation whenever they are used
 
+- We can write a pure array filter function:
+
+```js
+const cereals = ['frosted flakes', 'lucky charms', 'reeces puffs']
+
+function pureFilter(arr, callback) {
+  const filteredResults = []
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) filteredResults.push(arr[i])
+  }
+  return filteredResults
+}
+
+pureFilter(cereals, function(cereal) {
+  return cereal === 'lucky charms'
+}) //['lucky charms']
+```
+
 ---
 
 #### Avoiding Shared State
@@ -223,7 +260,9 @@ const destructivelyMutate = (numArr) => {
 
 const nums = [1, 2, 3]
 
-nums.map((n) => n++)
+nums.map((n) => n++) // [2, 3, 4]
+
+nums //[1, 2, 3]
 ```
 
 - `Array.prototype.map` will return a _copy_ of the array on which it is called, thereby avoiding mutating state.
@@ -251,6 +290,8 @@ const multiplyByTen = multiplyByN(10)
 multiplyByTen(5) //50
 
 ```
+
+- Refer to the ES6 iterators. Do `map`, `filter`, `reduce`, `find` care about what the function argument they are passed do?
 
 
 ---
