@@ -200,6 +200,29 @@ container.removeChild(containerPTag) //removes the child p tag
 
 ---
 
+### Adding Some Dank Memes to the Page
+
+- If you look at the `index.html`, there are **two** JavaScript files being loaded: `index.js` and `dankMemes.js`. I want to use JavaScript to create image tags, set the urls based on the array of strings found in `dankMemes.js` and add those `<img></img>` tags to the page.
+  - First I'll need to find the container to which I'll append the images:
+
+```js
+const imgContainer = document.querySelector('#container')
+```
+
+  - Then I'll iterate over the array of memes and create a new `<img></img>` tag **forEach** (haha lol) element in the array:
+
+```js
+dankMemes.forEach(function(memeUrlString) {
+  const newImgTag = document.createElement('img') //create a new img tag
+  newImgTag.src = memeUrlString //set the src for that img
+  imgContainer.appendChild(newImgTag) //add the img tag to the DOM
+})
+```
+
+  - A note about the choice to use `forEach` instead of `map`. Since we do not care about the return value of our iterator, `forEach` is fine here. If the return value––**mapped** or transformed array––mattered, then we could have chosen another iterator.
+
+---
+
 ## Manipulating the DOM with JavaScript Chart
 
 | Selector name                      | Return shape   | Return type    | Live? | Reference             | can i call forEach? |
