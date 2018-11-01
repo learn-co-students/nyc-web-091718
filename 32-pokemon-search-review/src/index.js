@@ -21,6 +21,28 @@ document.addEventListener('DOMContentLoaded', () => {
         return pokemonObject.name.includes(userSearchTerm.toLowerCase())
       })
       pokemonContainerForRenderingCards.innerHTML = renderAllPokemon(filteredPokemon)
+    }) //end input event listener
+
+    pokemonContainerForRenderingCards.addEventListener('click', (event) => {
+      // event target will be the thing (node) that was clicked
+      if (event.target.name === 'flip') {
+        console.log(event.target, event.target.dataset.id, event.target.dataset)
+        const clickedPokemon = allPokemonData.find((pokemonObject) => {
+          // pokemonObject -> {id: 2, name: 'ivysaur'}
+          // event.target.dataset.id -> "2"
+          // is "2" === 2
+          // in HTML -> data-id="2"
+          // in JS -> dataset.id -> '2'
+          // return pokemonObject.id === parseInt(event.target.dataset.id)
+          return pokemonObject.id == event.target.dataset.id
+        })
+        event.target.src = (event.target.src === clickedPokemon.sprites.front ? clickedPokemon.sprites.back : clickedPokemon.sprites.front)
+        // if (event.target.src === clickedPokemon.sprites.front) { //if the img is currently the front sprite
+        //   event.target.src = clickedPokemon.sprites.back
+        // } else {
+        //   event.target.src = clickedPokemon.sprites.front
+        // }
+      }
     })
 
 
@@ -37,7 +59,7 @@ const renderAllPokemon = /*FUNCTION*/ (pokemonArray) => {
         <h1 class="center-text">${pokemon.name}</h1>
         <div style="width:239px;margin:auto">
           <div style="width:96px;margin:auto">
-            <img data-id="${pokemon.id}" data-action="flip" class="toggle-sprite" src="${pokemon.sprites.front}">
+            <img name="flip" data-id="${pokemon.id}" data-action="flip" class="toggle-sprite" src="${pokemon.sprites.front}">
           </div>
         </div>
       </div>
@@ -73,7 +95,7 @@ function renderAllPokemonFnKeyword(pokemonArray) {
 
 
 
-
+// if we wanted to make our own ES6 Map FN:
 function myMap(arr, callback) {
   let mappedData = []
   for (let i = 0; i < arr.length; i++) {
