@@ -1,3 +1,7 @@
+/////// CODE FROM THE REVIEW REFACTORED VERSION FOUND IN OTHER FILES ////////////
+
+
+
 console.log('BEFORE DOM CONTENT LOADED', document.querySelector('#pokemon-container'))
 
 document.addEventListener('DOMContentLoaded', () => {
