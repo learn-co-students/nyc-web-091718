@@ -73,6 +73,11 @@ Although X in Ajax stands for XML, JSON is used more than XML nowadays because o
 
 - "What AJAX allows you to do is just update parts of the DOM of a HTML webpage instead of having to reload the entire page. AJAX also lets you work asynchronously, meaning your code continues to run while that part of your webpage is trying to reload (compared to synchronously which will block your code from running until that part of your webpage is done reloading)." - [MDN Glossary on AJAX][mdn-ajax-glossary]
 
+
+- Recall the request/response cycle; we do not know ahead of time how long an HTTP request will take to complete:
+
+![http request/response cycle](https://raw.github.com/site2site/site2site.github.io/master/images/lectures/client-server-model/client-server-2.gif)
+
 ---
 
 
@@ -83,7 +88,7 @@ Although X in Ajax stands for XML, JSON is used more than XML nowadays because o
 
 ```javascript
 const url = "https://dog.ceo/api/breeds/image/random"
-const promise = fetch(url)
+const promise = fetch(url, { method: 'GET' })
 console.log(promise)
 ```
 
@@ -130,7 +135,7 @@ _Common Bug_: evaluating a function instead of passing it to `then`
 
 Q: When will the message be logged?
 ```js
-var promise = fetch(url)
+const promise = fetch(url)
 promise.then(console.log("message"))
 ```
 
@@ -160,7 +165,7 @@ fetch("https://dog.ceo/api/breeds/list/all")
 ```
 
 * We get back a Promise from `fetch`, which we can add handlers to with `then`
-* The handler that we pass to `then` gets a `Response` object (remember the request/response cycle from Mod2?)
+* The handler that we pass to `then` gets a `Response` object
 * We can call the `.json` method on the `Response` to get a promise for the parsed json from the response
 
 ```js
@@ -169,7 +174,7 @@ fetch("https://dog.ceo/api/breeds/list/all")
 .then(json => console.log(json))
 ```
 
-* If the response is not formatted as JSON, we can use `.text` instead
+* If the response is not formatted as JSON, we can use other methods such as `.text` to parse the response, depending on the _type_ of data sent back to us.
 
 ```js
 fetch("https://dog.ceo/api/breeds/list/all")
