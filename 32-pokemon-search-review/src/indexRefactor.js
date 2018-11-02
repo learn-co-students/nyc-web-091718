@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
       pokemonContainerForRenderingCards.innerHTML = renderAllPokemon(allPokemonData)
     })
 
-    pokemonSearchInputField.addEventListener('input', (event) => handleSearchInput(event, allPokemonData, pokemonContainerForRenderingCards))
+  pokemonSearchInputField.addEventListener('input', (event) => handleSearchInput(event, allPokemonData, pokemonContainerForRenderingCards))
 
-    pokemonContainerForRenderingCards.addEventListener('click', (event) => handleImgClick(event, allPokemonData))
+  pokemonContainerForRenderingCards.addEventListener('click', (event) => handleImgClick(event, allPokemonData))
 
 })
