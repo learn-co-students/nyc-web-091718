@@ -44,3 +44,33 @@ input:focus {
 .flip-image {
   color: #2d72fc;
 }
+
+#pokemon-post-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#pokemon-post-form p {
+  font-size: 1.2rem;
+  color: #2d72fc;
+}
+
+#pokemon-post-form input[type="text"] {
+  font-size: 2rem;
+  border: 3px solid #fecd2f;
+  color: #2d72fc;
+}
+
+.pokebutton {
+  font-size: 2rem;
+  border: 3px solid #2d72fc;
+  background-color: #fecd2f;
+  color: #2d72fc;
+}
+
+.pokebutton:hover {
+  background-color: #2d72fc;
+  color: #fecd2f;
+}

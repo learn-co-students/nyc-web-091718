@@ -1,60 +1,48 @@
-/////// CODE FROM THE REVIEW REFACTORED VERSION FOUND IN OTHER FILES ////////////
-
-
-
-console.log('BEFORE DOM CONTENT LOADED', document.querySelector('#pokemon-container'))
-
 document.addEventListener('DOMContentLoaded', () => {
+  /*****************************************************************************
+   * All of our variables and data.
+   ****************************************************************************/
   let allPokemonData = []
   const pokemonContainerForRenderingCards = document.querySelector('#pokemon-container')
   const pokemonSearchInputField = document.querySelector('#pokemon-search-input')
-  // i need to listen for typing on the input field
-  // then update the DOM when that happens
 
+
+  /*****************************************************************************
+   * On load fetch actions
+   ****************************************************************************/
   fetch('http://localhost:3000/pokemon'/*, { method: 'GET' }*/)
-    .then(/*FUNCTION*/(responseObject) => /*RETURN*/ responseObject.json())
+    .then((responseObject) => responseObject.json())
     .then((pokeJSONData) => {
-      allPokemonData = pokeJSONData //save all the data from the server so we do not have to fetch it again
+      allPokemonData = pokeJSONData
       pokemonContainerForRenderingCards.innerHTML = renderAllPokemon(allPokemonData)
-    }) //end of FETCH
+    }) //end of GET all Pokemon FETCH
 
-    pokemonSearchInputField.addEventListener('input', (event) => {
-      const userSearchTerm = event.target.value
-      const filteredPokemon = allPokemonData.filter((pokemonObject) => {
-        // pokemonObject.name -> 'charizard'
-        return pokemonObject.name.includes(userSearchTerm.toLowerCase())
-      })
-      pokemonContainerForRenderingCards.innerHTML = renderAllPokemon(filteredPokemon)
-    }) //end input event listener
 
-    pokemonContainerForRenderingCards.addEventListener('click', (event) => {
-      // event target will be the thing (node) that was clicked
-      if (event.target.name === 'flip') {
-        console.log(event.target, event.target.dataset.id, event.target.dataset)
-        const clickedPokemon = allPokemonData.find((pokemonObject) => {
-          // pokemonObject -> {id: 2, name: 'ivysaur'}
-          // event.target.dataset.id -> "2"
-          // is "2" === 2
-          // in HTML -> data-id="2"
-          // in JS -> dataset.id -> '2'
-          // return pokemonObject.id === parseInt(event.target.dataset.id)
-          return pokemonObject.id == event.target.dataset.id
-        })
-        event.target.src = (event.target.src === clickedPokemon.sprites.front ? clickedPokemon.sprites.back : clickedPokemon.sprites.front)
-        // if (event.target.src === clickedPokemon.sprites.front) { //if the img is currently the front sprite
-        //   event.target.src = clickedPokemon.sprites.back
-        // } else {
-        //   event.target.src = clickedPokemon.sprites.front
-        // }
-      }
+  /*****************************************************************************
+   * Event Listeners
+   ****************************************************************************/
+  pokemonSearchInputField.addEventListener('input', (event) => {
+    const userSearchTerm = event.target.value
+    const filteredPokemon = allPokemonData.filter((pokemonObject) => {
+      return pokemonObject.name.includes(userSearchTerm.toLowerCase())
     })
+    pokemonContainerForRenderingCards.innerHTML = renderAllPokemon(filteredPokemon)
+  }) //end search input event listener
 
-
+  pokemonContainerForRenderingCards.addEventListener('click', (event) => {
+    if (event.target.name === 'flip') {
+      const clickedPokemon = allPokemonData.find((pokemonObject) => {
+        return pokemonObject.id == event.target.dataset.id
+      })
+      event.target.src = (event.target.src === clickedPokemon.sprites.front ? clickedPokemon.sprites.back : clickedPokemon.sprites.front)
+    }
+  }) // end sprite toggle event listener
 })
 
 
-
-
+/*******************************************************************************
+ * Helper functions
+ ******************************************************************************/
 const renderAllPokemon = /*FUNCTION*/ (pokemonArray) => {
   return pokemonArray.map((pokemon) => {
     return `
@@ -66,44 +54,9 @@ const renderAllPokemon = /*FUNCTION*/ (pokemonArray) => {
             <img name="flip" data-id="${pokemon.id}" data-action="flip" class="toggle-sprite" src="${pokemon.sprites.front}">
           </div>
         </div>
+        <button class="pokebutton" style="width: 230px;margin:auto;">Delete</button>
       </div>
     </div>
     `
   }).join('')
-}
-
-function renderAllPokemonFnKeyword(pokemonArray) {
-  // [ {id: '2', name: 'ivysaur'} ]
-  return pokemonArray.map(function(pokemon) {
-    // whatever my map callback returns, will be pushed onto my map array
-    return `
-    <div class="pokemon-container">
-      <div style="width:230px;margin:10px;background:#fecd2f;color:#2d72fc" class="pokemon-frame">
-        <h1 class="center-text">${pokemon.name}</h1>
-        <div style="width:239px;margin:auto">
-          <div style="width:96px;margin:auto">
-            <img data-id="${pokemon.id}" data-action="flip" class="toggle-sprite" src="${pokemon.sprites.front}">
-          </div>
-        </div>
-      </div>
-    </div>
-    `
-  }).join('')
-}
-
-
-
-
-
-
-
-
-
-// if we wanted to make our own ES6 Map FN:
-function myMap(arr, callback) {
-  let mappedData = []
-  for (let i = 0; i < arr.length; i++) {
-    mappedData.push(callback(arr[i]))
-  }
-  return mappedData
 }
