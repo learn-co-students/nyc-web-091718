@@ -99,7 +99,7 @@ function renderAllPokemonFnKeyword(pokemonArray) {
 
 
 
-// if we wanted to make our own ES6 Map FN:
+// if we wanted to make our own ES6 Map FN (note that technically this would be defined on the Array.prototype but we'll learn about that next week):
 function myMap(arr, callback) {
   let mappedData = []
   for (let i = 0; i < arr.length; i++) {
