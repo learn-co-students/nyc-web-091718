@@ -6,7 +6,7 @@ Gotta Fetch'em All!
 ## SWBATs
 
 - [ ] Understand why we request data asynchronously
-- [ ] Create `fetch` requests (including `GET`, `POST`, `PATCH`, `DELETE`)
+- [ ] Create `fetch` requests (including `GET`, `POST`, `PATCH`, `PUT`, `DELETE`)
 - [ ] Manipulate the DOM in conjunction with `fetch` calls
 - [ ] Understand optimistic vs pessimistic rendering
 
@@ -14,12 +14,12 @@ Gotta Fetch'em All!
 
 ### From CRUD to FETCH
 
-| CRUD    | FETCH         |
-|: ----- :|: ----------- :|
-| Create  | POST          |
-| Read    | GET           |
-| Update  | PATCH or PUT  |
-| Delete  | DELETE        |
+| CRUD              | FETCH         |
+|: --------------- :|: ----------- :|
+| Create            | POST          |
+| Read              | GET           |
+| Update            | PATCH or PUT  |
+| Delete / Destroy  | DELETE        |
 
 [Documentation of using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
