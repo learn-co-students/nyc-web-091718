@@ -46,17 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
 const renderAllPokemon = /*FUNCTION*/ (pokemonArray) => {
   return pokemonArray.map((pokemon) => {
     return `
-    <div class="pokemon-container">
-      <div style="width:230px;margin:10px;background:#fecd2f;color:#2d72fc" class="pokemon-frame">
-        <h1 class="center-text">${pokemon.name}</h1>
-        <div style="width:239px;margin:auto">
-          <div style="width:96px;margin:auto">
-            <img name="flip" data-id="${pokemon.id}" data-action="flip" class="toggle-sprite" src="${pokemon.sprites.front}">
+      <div class="pokemon-container">
+        <div style="width:230px;margin:10px;background:#fecd2f;color:#2d72fc" class="pokemon-frame">
+          <h1 class="center-text">${pokemon.name}</h1>
+          <div style="width:239px;margin:auto">
+            <div style="width:96px;margin:auto">
+              <img name="flip" data-id="${pokemon.id}" data-action="flip" class="toggle-sprite" src="${pokemon.sprites.front}">
+            </div>
           </div>
+          <button class="pokebutton" style="width: 230px;margin:auto;">Delete</button>
         </div>
-        <button class="pokebutton" style="width: 230px;margin:auto;">Delete</button>
       </div>
-    </div>
     `
   }).join('')
 }
