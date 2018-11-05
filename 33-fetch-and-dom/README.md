@@ -70,13 +70,17 @@ These changes should _persist_ in our database.
 Persisting data/change? Well _crud_... how do we do that? 🤔
 
 | CRUD              | FETCH         |
-|: --------------- :|: ----------- :|
+| ----------------- | ------------- |
 | Create            | POST          |
 | Read              | GET           |
 | Update            | PATCH or PUT  |
 | Delete / Destroy  | DELETE        |
 
 [Documentation of using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+`PUT` vs `PATCH`
+
+The existing HTTP PUT method only allows a complete replacement of a document. This proposal adds a new HTTP method, PATCH, to modify an existing HTTP resource.
 
 ### JSON Server Routes
 
@@ -230,7 +234,7 @@ These steps are you being aware of _how_ **your** application is built.
     * Add to `innerHTML` +=
     * `event.currentTarget` to find what the event listener is attached to (where everything bubbles up to) 👂
     * Climbing the tree 🧗‍🌲:
-      * `event.target.parentElement` or `event.target.parentNode` for looking up the tree
+      * `event.target.parentElement` or `event.target.parentNode` for looking up the tree ([difference](https://stackoverflow.com/questions/8685739/difference-between-dom-parentnode-and-parentelement))
       * `event.target.children` for looking down the tree
     * `removeChild` 😵
     * Learn to use the MDN docs!

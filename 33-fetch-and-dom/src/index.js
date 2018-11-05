@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * Example of why you cannot trust the ordering of your fetch requests.
+ * What order will the numbers be printed to the console?
+ ******************************************************************************/
 // console.log('#1: before I start fetching');
 // fetch('http://localhost:4000/cat')
 //   .then(response => response.json())
@@ -15,6 +19,7 @@
 //     console.log('%c #4: json', 'color: pink', json);
 //   });
 // console.log('#5: done fetching');
+
 
 document.addEventListener('DOMContentLoaded', () => {
   /*****************************************************************************
