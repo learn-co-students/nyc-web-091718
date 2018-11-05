@@ -70,7 +70,7 @@ These changes should _persist_ in our database.
 Persisting data/change? Well _crud_... how do we do that? 🤔
 
 | CRUD              | FETCH         |
-|: --------------- :|: ----------- :|
+| ----------------- | ------------- |
 | Create            | POST          |
 | Read              | GET           |
 | Update            | PATCH or PUT  |
