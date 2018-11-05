@@ -19,12 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
       //   newPTag.innerText = note.title
       //   noteDiv.appendChild(newPTag)
       // })
-      const noteTitleHTML = allNoteJSON
-        .map(note => {
+      const noteTitleHTML = allNoteJSON.map(note => {
           // add an id to each note so i can quickly find it on the DOM later
           return `<p id="note-${note.id}" data-id="${note.id}">${note.title}</p>`
-        })
-        .join('') //.map returns an array; use join to convert to a string
+        }).join('') //.map returns an array; use join to convert to a string
       noteDiv.innerHTML = noteTitleHTML
     }) //end of fetch
 
