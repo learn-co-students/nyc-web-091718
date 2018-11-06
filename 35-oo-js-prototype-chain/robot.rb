@@ -12,3 +12,5 @@ class Robot
   end
 
 end
+
+robot = Robot.new('Wall-E', 2, 'garbagio')
