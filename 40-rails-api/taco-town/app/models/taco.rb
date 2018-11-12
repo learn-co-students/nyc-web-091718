@@ -1,0 +1,2 @@
+class Taco < ApplicationRecord
+end
