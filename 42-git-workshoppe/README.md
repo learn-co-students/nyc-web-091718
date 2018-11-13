@@ -101,7 +101,17 @@ origin	git@github.com:learn-co-students/nyc-web-080618.git (push)
 
 ---
 
-# Working with Collaborators
+# Working with Collaborators and Branching
+
+- `git` allows us to diverge or _branch_ from our code at a particular point in time so that we can continue to work on features **without introducing any breaking changes into our working master branch**. You may have heard that `master` should always be broken or should never have broken code. The `master` branch should ideally have fully working features and be even with the deployed version of your application.
+- Branching allows us to write and test code without introducing potential bugs into the deployed `master` branch:
+
+- To checkout a new branch: `$ git checkout -b new-comment-form`. This command tells git to create a new branch and switch to it. Typically, branches are named according to the new functionality they intend to introduce.
+
+- If I want to see all of the branches that I currently have _locally on my machine_: `$ git branch`
+- If I want to switch from my current branch to another branch: `$ git checkout master`. Notice that without the `-b` flag, git will not attempt to create a new branch and will instead switch to an already existing branch.
+- If one of my collaborators recently pushed changes to GitHub, I can use `$ git fetch origin` to copy those changes onto my machine.
+- If I want to fetch changes and merge them into my current branch, I can use `$ git pull`. Alternatively, I can use `$ git fetch origin` and `$ git merge origin/master` to first pull down all the changes made to the `master` branch on GitHub and merge them into my current working branch.
 
 
 ---
@@ -129,19 +139,6 @@ HEAD is now at 41b84c0 THE WINDOW OBJECT
 ```
 
 - If I want to go back to my most recent commit, I can call `git checkout master` or whatever branch I was working on. This will point my HEAD back at my most recent commit.
-
----
-
-#### Coming Soon™️
-
-- How do you resolve a merge conflict?
-- How do I undo changes?
-  - How do I cover my tracks
-  - How can I make my reversion visible to my team?
-- Branches 🤔
-- What is git fetch vs. git pull?
-  - Asks the remote (GitHub) for changes and updates my **local copy** of `origin/master`
-  - Git pull will fetch **AND** merge with my current branch
 
 ---
 
