@@ -4,7 +4,7 @@
 
 - What is Git?
   - Git is a **version control system** (VCS)
-  - Essentially, Git allows us to travel through time by creating a series of **snapshots**. These snapshots are called `commits`. You can view your commits by calling `git log` from your terminal. You can supply an optional number of commits; `git log -n 4 --oneline`, will give you the 4 most recent commit messages and condense each commit onto one line:
+  - Essentially, `git` allows us to travel through time by creating a series of **snapshots**. These snapshots are called `commits`. You can view your commits by calling `git log` from your terminal. You can supply an optional number of commits; `git log -n 4 --oneline`, will give you the 4 most recent commit messages and condense each commit to one line:
 
 ```sh
 // 🌚🍔 git log -n 4
@@ -27,7 +27,7 @@ Pay attention to the structure of logs here:
 
 - As I continue working on my new feature in my application, I can create new snapshots whenever I want to save my progress:
 
-- First I'll call `git status` to see which files I've updated since my last `commit`:
+  - First I'll call `git status` to see which files I've updated since my last `commit`:
 
 ```sh
 // 🌚🍔 git status
@@ -98,6 +98,9 @@ Your branch is ahead of 'origin/master' by 1 commit.
 origin	git@github.com:learn-co-students/nyc-web-080618.git (fetch)
 origin	git@github.com:learn-co-students/nyc-web-080618.git (push)
 ```
+
+- Whenever I `$ git push`, my local changes will be sent to the remote repository specified by `origin  git@github.com:learn-co-students/nyc-web-080618.git (push)
+`
 
 ---
 
