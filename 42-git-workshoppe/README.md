@@ -165,10 +165,3 @@ HEAD is now at 41b84c0 THE WINDOW OBJECT
 
 
 ![wow look at that dog](http://cdn.akc.org/content/hero/puppy-boundaries_header.jpg)
-
-
-# FIX WIN PERCENTAGES
-
-
-
-# THIS IS THE CORRECT VERSION MERGE ME DON'T LISTEN TO ANDREW
