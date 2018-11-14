@@ -123,9 +123,9 @@ origin	git@github.com:learn-co-students/nyc-web-080618.git (push)
 
 ---
 
-#### Checking Out and Older Commit
+#### Checking Out an Older Commit
 
-Remember how we said Git allows us to "travel through time?"
+Remember how we said `git` allows us to "travel through time?"
 If I call `git checkout 41b84c0` I can view the state of my project at this particular point in time:
 
 ```sh
