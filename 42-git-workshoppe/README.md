@@ -116,6 +116,10 @@ origin	git@github.com:learn-co-students/nyc-web-080618.git (push)
 - If one of my collaborators recently pushed changes to GitHub, I can use `$ git fetch origin` to copy those changes onto my machine.
 - If I want to fetch changes and merge them into my current branch, I can use `$ git pull`. Alternatively, I can use `$ git fetch origin` and `$ git merge origin/master` to first pull down all the changes made to the `master` branch on GitHub and merge them into my current working branch.
 
+---
+
+![git branch diagram via atlassian](https://wac-cdn.atlassian.com/dam/jcr:746be214-eb99-462c-9319-04a4d2eeebfa/01.svg?cdnVersion=kl)
+
 
 ---
 
@@ -136,7 +140,7 @@ state without impacting any branches by performing another checkout.
 If you want to create a new branch to retain commits you create, you may
 do so (now or later) by using -b with the checkout command again. Example:
 
-git checkout -b <new-branch-name>
+git checkout -b <new-branch-name> []
 
 HEAD is now at 41b84c0 THE WINDOW OBJECT
 ```
@@ -152,6 +156,7 @@ HEAD is now at 41b84c0 THE WINDOW OBJECT
 - [Git Course on Codecademy](https://www.codecademy.com/learn/learn-git)
 - [Visualizing Git by GitHub](http://git-school.github.io/visualizing-git/)
 - [Resources for Learning Git by GitHub](https://try.github.io/)
+- [Using Git Branches via Atlassian](https://ko.atlassian.com/git/tutorials/using-branches)
 
 ---
 
