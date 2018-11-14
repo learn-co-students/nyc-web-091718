@@ -2,7 +2,7 @@
 
 ---
 Hiya!!!
-- What is Git?
+- What is Git? No, really, what is it?
   - Git is a **version control system** (VCS)
   - Essentially, `git` allows us to travel through time by creating a series of **snapshots**. These snapshots are called `commits`. You can view your commits by calling `git log` from your terminal. You can supply an optional number of commits; `git log -n 4 --oneline`, will give you the 4 most recent commit messages and condense each commit to one line:
 
