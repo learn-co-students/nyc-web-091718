@@ -27,8 +27,9 @@ const UserStats = ({ users }) => {
 }
 
 function mapStateToProps(state) {
+  console.log('%c UserStats state', 'color: red',state);
   return {
-    users: state.users
+    users: state.user.users
   }
 }
 

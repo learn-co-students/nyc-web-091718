@@ -1,7 +1,16 @@
 // import { ADD_USER, UPDATE_ANIMAL } from './types';
 import { combineReducers } from 'redux';
-import animalReducer from './reducers/animalReducer'
-import userReducer from './reducers/userReducer'
+import animal from './animalReducer'
+import user from './userReducer'
+
+
+export default combineReducers({
+  user,
+  animal,
+})
+
+
+
 
 // const initialState = {
 //   users: [],
@@ -29,12 +38,3 @@ import userReducer from './reducers/userReducer'
 //       return state;
 //   }
 // }
-
-
-
-
-
-export default combineReducers({
-  user: userReducer,
-  animal: animalReducer,
-})

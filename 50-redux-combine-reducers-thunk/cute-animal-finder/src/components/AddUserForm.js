@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addUserAction } from '../redux/actions';
+import { addUser } from '../redux/actions';
+// import { } // named import <== not the default
 
 class AddUserForm extends Component {
   state = {
@@ -37,10 +38,10 @@ class AddUserForm extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    addUser: (name, email, animalPreference) => dispatch(addUserAction(name, email, animalPreference))
-  }
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     addUser: (name, email, animalPreference) => dispatch(addUserAction(name, email, animalPreference))
+//   }
+// }
 
-export default connect(null, mapDispatchToProps)(AddUserForm);
+export default connect(null, { addUser })(AddUserForm);
