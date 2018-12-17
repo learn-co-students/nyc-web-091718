@@ -6,20 +6,26 @@ import { loginUser } from '../actions/user'
 import { Button, Form, Segment, Message } from 'semantic-ui-react'
 
 class LoginForm extends React.Component {
+  // constructor() {
+  //   this.state = { username: '', password: '' }
+  // }
   state = { username: '', password: '' }
 
   // handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleChange = (e, semanticInputData) => {
-    this.setState({ [semanticInputData.name]: semanticInputData.value })
+    // this.setState({ [semanticInputData.name]: semanticInputData.value })
+    this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleLoginSubmit = () => { //semantic forms preventDefault for you
+  handleLoginSubmit = (e) => { //semantic forms preventDefault for you
+    // e.preventDefault()
     this.props.loginUser(this.state.username, this.state.password) //comes from mapDispatchToProps
     this.setState({ username: '', password: '' }) //reset form to initial state
   }
 
   render() {
+    console.log('%c LOGIN FORM PROPS: ', 'color: red', this.props)
     return this.props.loggedIn ? (
       <Redirect to="/profile" />
     ) : (
@@ -55,14 +61,6 @@ class LoginForm extends React.Component {
     )
   }
 }
-
-// const mapStateToProps = ({ usersReducer: { authenticatingUser, failedLogin, error, user, loggedIn } }) => ({
-//   authenticatingUser,
-//   failedLogin,
-//   error,
-//   user,
-//   loggedIn
-// })
 
 // const mapStateToProps = (reduxStoreState) => {
 //   return {

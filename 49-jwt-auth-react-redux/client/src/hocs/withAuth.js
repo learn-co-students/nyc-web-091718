@@ -8,12 +8,14 @@ import { Loader } from 'semantic-ui-react'
 const withAuth = /*FUNCTION*/ (WrappedComponent) => {
   class AuthorizedComponent extends React.Component {
     componentDidMount() {
+      console.log('%c INSIDE COMPONENT DID MOUNT FOR AUTH HOC', 'color: purple')
       // POTENTIAL SECURITY FLAW!!! my tokens don't expire
       if (localStorage.getItem('jwt') && !this.props.loggedIn) this.props.fetchCurrentUser()
       // if i have a token but don't know who it belongs to, ask the server for that user's data
     }
 
     render() {
+      console.log('%c INSIDE RENDER FOR HOC', 'color: green')
       if (localStorage.getItem('jwt') && this.props.loggedIn) {
         //i have a token and i'm logged in
         // wrapped component in our case is Profile
@@ -45,10 +47,7 @@ const withAuth = /*FUNCTION*/ (WrappedComponent) => {
   // const connectedAuthorizedComponent = connectedToReduxHOC(AuthorizedComponent)
   // return connectedAuthorizedComponent
 
-  return connect(
-    mapStateToProps,
-    { fetchCurrentUser }
-  )(AuthorizedComponent)
+  return connect(mapStateToProps, { fetchCurrentUser })(AuthorizedComponent)
 }
 
 export default withAuth
